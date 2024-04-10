@@ -2,11 +2,14 @@ const express = require("express");
 
 // init app enviroment varibals
 require("dotenv").config({
-  path: "./.env/config.env",
+  path: "./config.env",
 });
 const morgan = require("morgan");
 const passprot = require("passport");
 const cookiesParser = require("cookie-parser");
+const serverless = require("serverless-http");
+
+const router = express.Router();
 
 const app = express();
 const expressAsyncHandler = require("express-async-handler");
@@ -76,6 +79,9 @@ const port = process.env.PORT || 8000;
 const server = app.listen(port, () => {
   console.log(`app run on: http://localhost:${port}`);
 });
+
+app.use("/.netlify/functions/app", router);
+module.exports.handler = serverless(app);
 
 process.on("unhandledRejection", (err) => {
   console.error(`unhandledRejection Errors: ${err.name} | ${err.message} `);
