@@ -48,7 +48,7 @@ app.get(
   expressAsyncHandler(async (req, res, next) => {
     const { shortUrl } = req.params;
     const url = await ShortUrl.findOne({
-      short_url: `${process.env.BASE_URL}/${shortUrl}`,
+      short_url: `${process.env.BASE_URL}/s/${shortUrl}`,
     });
     console.log(url);
     if (!url) {
