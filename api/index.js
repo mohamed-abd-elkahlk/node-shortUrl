@@ -50,7 +50,6 @@ app.get(
     const url = await ShortUrl.findOne({
       short_url: `${process.env.BASE_URL}/s/${shortUrl}`,
     });
-    console.log(url);
     if (!url) {
       return next(
         new ApiError(

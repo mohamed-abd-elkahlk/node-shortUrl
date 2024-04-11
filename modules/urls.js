@@ -49,7 +49,7 @@ UrlShema.pre("save", function (next) {
   const salt = crypto.randomBytes(8).toString("hex");
 
   const hashUrl = generateShortUrl(this.long_url, salt);
-  this.short_url = `${process.env.BASE_URL}/${hashUrl}`;
+  this.short_url = `${process.env.BASE_URL}/s/${hashUrl}`;
   this.salt = salt;
   next();
 });
