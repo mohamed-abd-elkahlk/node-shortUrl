@@ -3,8 +3,8 @@ const fs = require("fs");
 const path = require("path");
 const jwt = require("jsonwebtoken");
 
-const privKeyPath = path.join(__dirname, "../../.env/id_rsa_priv.pem");
-const pupKeyPath = path.join(__dirname, "../../.env/id_rsa_pup.pem");
+const privKeyPath = path.join(__dirname, "../../id_rsa_priv.pem");
+const pupKeyPath = path.join(__dirname, "../../id_rsa_pup.pem");
 
 const PRIV_KEY = fs.readFileSync(privKeyPath, "utf-8");
 const PUP_KEY = fs.readFileSync(pupKeyPath, "utf-8");

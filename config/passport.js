@@ -3,7 +3,7 @@ const path = require("path");
 const JWTstrategy = require("passport-jwt").Strategy;
 const User = require("../modules/user");
 
-const pupKeyPath = path.join(__dirname, "../.env/id_rsa_pup.pem");
+const pupKeyPath = path.join(__dirname, "../id_rsa_pup.pem");
 const PUP_KEY = fs.readFileSync(pupKeyPath, "utf-8");
 
 const cookiesExtractor = (req) => {

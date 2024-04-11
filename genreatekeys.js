@@ -14,11 +14,8 @@ const generateKey = crypto.generateKeyPairSync("rsa", {
   },
 });
 
-if (!fs.existsSync("./.env")) {
-  fs.mkdirSync("./.env");
-}
-const publickeyPath = path.join(__dirname, "./.env/id_rsa_pup.pem");
-const privtekeyPath = path.join(__dirname, "./.env/id_rsa_priv.pem");
+const publickeyPath = path.join(__dirname, "./id_rsa_pup.pem");
+const privtekeyPath = path.join(__dirname, "./id_rsa_priv.pem");
 
 fs.writeFileSync(publickeyPath, generateKey.publicKey);
 
