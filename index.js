@@ -79,10 +79,6 @@ const port = process.env.PORT || 8000;
 const server = app.listen(port, () => {
   console.log(`app run on: http://localhost:${port}`);
 });
-
-app.use("/.netlify/functions/", router);
-module.exports.handler = serverless(app);
-
 process.on("unhandledRejection", (err) => {
   console.error(`unhandledRejection Errors: ${err.name} | ${err.message} `);
   server.close(() => {
@@ -90,3 +86,5 @@ process.on("unhandledRejection", (err) => {
     process.exit(1);
   });
 });
+
+module.exports = app;

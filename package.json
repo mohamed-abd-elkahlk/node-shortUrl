@@ -4,9 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "",
-    "dev": "nodemon",
-    "build": "netlify deploy --prod"
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "",
