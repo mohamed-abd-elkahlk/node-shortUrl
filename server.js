@@ -44,7 +44,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 
 app.get(
-  "/:shortUrl",
+  "/s/:shortUrl",
   expressAsyncHandler(async (req, res, next) => {
     const { shortUrl } = req.params;
     const url = await ShortUrl.findOne({
@@ -80,7 +80,7 @@ const server = app.listen(port, () => {
   console.log(`app run on: http://localhost:${port}`);
 });
 
-app.use("/.netlify/functions/app", router);
+app.use("/.netlify/functions/", router);
 module.exports.handler = serverless(app);
 
 process.on("unhandledRejection", (err) => {
