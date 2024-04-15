@@ -25,8 +25,7 @@ dbConnection();
 app.use(
   cors({
     credentials: true,
-    // origin: process.env.CLINT_URL
-    origin: "http://localhost:5173",
+    origin: process.env.CLINT_URL,
   })
 );
 // mildllwere to help us to recive requst
