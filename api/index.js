@@ -4,7 +4,6 @@ const express = require("express");
 require("dotenv").config({
   path: "./.env",
 });
-const morgan = require("morgan");
 const passprot = require("passport");
 const cookiesParser = require("cookie-parser");
 
@@ -23,7 +22,13 @@ dbConnection();
 
 // this middlwere used to log out the http requst
 // app.use(morgan("dev"));
-app.use(cors({ credentials: true, origin: process.env.CLINT_URL }));
+app.use(
+  cors({
+    credentials: true,
+    // origin: process.env.CLINT_URL
+    origin: "http://localhost:5173",
+  })
+);
 // mildllwere to help us to recive requst
 app.use(express.json());
 passprot.use(require("../config/passport"));
@@ -73,12 +78,9 @@ app.use(globalError);
 
 // TODO: make error for prodction mode
 const port = process.env.PORT || 8000;
-const server = app.listen(
-  port
-  //    () => {
-  //   // console.log(`app run on: http://localhost:${port}`);
-  // }
-);
+const server = app.listen(port, () => {
+  console.log(`app run on: http://localhost:${port}`);
+});
 process.on("unhandledRejection", (err) => {
   console.error(`unhandledRejection Errors: ${err.name} | ${err.message} `);
   server.close(() => {

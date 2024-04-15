@@ -80,13 +80,15 @@ const varifySignup = asyncHandler(async (req, res, next) => {
 
 const login = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
-
+  if (!user) {
+    return next(new ApiError("Incorrect email or password", 401));
+  }
   const verifyPassword = verifyPasswordHash(
     req.body.password,
     user.salt,
     user.password
   );
-  if (!user || !verifyPassword) {
+  if (!verifyPassword) {
     return next(new ApiError("Incorrect email or password", 401));
   }
   if (!user.isVerified) {
