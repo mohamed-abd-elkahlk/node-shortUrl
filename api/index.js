@@ -7,10 +7,8 @@ require("dotenv").config({
 const morgan = require("morgan");
 const passprot = require("passport");
 const cookiesParser = require("cookie-parser");
-const serverless = require("serverless-http");
 
-const router = express.Router();
-
+const cors = require("cors");
 const app = express();
 const expressAsyncHandler = require("express-async-handler");
 const shortUrlRoutes = require("../routes/url.routes");
@@ -24,8 +22,8 @@ const dbConnection = require("../config/db.connection");
 dbConnection();
 
 // this middlwere used to log out the http requst
-app.use(morgan("dev"));
-
+// app.use(morgan("dev"));
+app.use(cors({ credentials: true, origin: process.env.CLINT_URL }));
 // mildllwere to help us to recive requst
 app.use(express.json());
 passprot.use(require("../config/passport"));
