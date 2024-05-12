@@ -18,8 +18,6 @@ const globalError = require("../middleware/Error");
 // database connect
 const dbConnection = require("../config/db.connection");
 
-dbConnection();
-
 // this middlwere used to log out the http requst
 // app.use(morgan("dev"));
 
@@ -73,6 +71,7 @@ app.use(globalError);
 // TODO: make error for prodction mode
 const port = process.env.PORT || 8000;
 const server = app.listen(port, () => {
+  dbConnection();
   console.log(`app run on: http://localhost:${port}`);
 });
 process.on("unhandledRejection", (err) => {
