@@ -25,7 +25,7 @@ dbConnection();
 app.use(
   cors({
     credentials: true,
-    origin: process.env.CLINT_URL,
+    origin: [process.env.CLINT_URL],
   })
 );
 
