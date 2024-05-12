@@ -28,6 +28,7 @@ app.use(
     origin: process.env.CLINT_URL,
   })
 );
+
 // mildllwere to help us to recive requst
 app.use(express.json());
 passprot.use(require("../config/passport"));
