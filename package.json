@@ -2,7 +2,7 @@
   "name": "short-url",
   "version": "1.0.0",
   "description": "",
-  "main": "api/index.js",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon"
   },
@@ -18,7 +18,7 @@
     "express-async-handler": "^1.2.0",
     "express-validator": "^7.0.1",
     "jsonwebtoken": "^9.0.1",
-    "mongoose": "^7.4.3",
+    "mongoose": "^7.6.10",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "netlify-cli": "^17.22.1",

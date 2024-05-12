@@ -30,7 +30,7 @@ dependencies:
     specifier: ^9.0.1
     version: 9.0.2
   mongoose:
-    specifier: ^7.4.3
+    specifier: ^7.6.10
     version: 7.6.10
   morgan:
     specifier: ^1.10.0

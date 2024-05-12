@@ -10,13 +10,13 @@ const cookiesParser = require("cookie-parser");
 const cors = require("cors");
 const app = express();
 const expressAsyncHandler = require("express-async-handler");
-const shortUrlRoutes = require("../routes/url.routes");
-const userRoutes = require("../routes/user.routes");
-const authRoutes = require("../routes/auth.routes");
-const globalError = require("../middleware/Error");
+const shortUrlRoutes = require("./routes/url.routes");
+const userRoutes = require("./routes/user.routes");
+const authRoutes = require("./routes/auth.routes");
+const globalError = require("./middleware/Error");
 
 // database connect
-const dbConnection = require("../config/db.connection");
+const dbConnection = require("./config/db.connection");
 
 dbConnection();
 
@@ -30,14 +30,14 @@ app.use(
 );
 // mildllwere to help us to recive requst
 app.use(express.json());
-passprot.use(require("../config/passport"));
+passprot.use(require("./config/passport"));
 
 app.use(cookiesParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(passprot.initialize());
 // routes
-const ShortUrl = require("../modules/urls");
-const { ApiError } = require("../utils/utiles");
+const ShortUrl = require("./modules/urls");
+const { ApiError } = require("./utils/utiles");
 
 app.use("/api/shorturl", shortUrlRoutes);
 

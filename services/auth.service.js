@@ -101,10 +101,7 @@ const login = asyncHandler(async (req, res, next) => {
   delete user._doc.password;
   delete user._doc.salt;
   // send response to client side
-  res
-    .status(200)
-    .cookie("jwt", token, { httpOnly: true, sameSite: "strict" })
-    .json({ data: user });
+  res.status(200).json({ data: user, token });
 });
 const allowedTo = (...roles) =>
   asyncHandler(async (req, res, next) => {
