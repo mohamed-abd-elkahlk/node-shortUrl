@@ -14,8 +14,7 @@ async function dbConnection() {
   if (cached.connction) return cached.connction;
 
   if (!cached.promise) {
-    const opts = { bufferCommands: false };
-    cached.promise = mongoose.connect(MONOG_URI, opts);
+    cached.promise = mongoose.connect(MONOG_URI);
   }
   try {
     cached.connection = await cached.promise;
