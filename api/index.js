@@ -22,8 +22,6 @@ dbConnection();
 
 // this middlwere used to log out the http requst
 // app.use(morgan("dev"));
-app.use(cors());
-app.options("*", cors());
 
 // mildllwere to help us to recive requst
 app.use(express.json());
