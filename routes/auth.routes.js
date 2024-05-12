@@ -20,13 +20,6 @@ router.post("/forgotPassword", forgotPassword);
 router.post("/verifyResetCode", verifyPassResetCode);
 router.put("/resetPassword", resetPassword);
 
-router.use(
-  passport.authenticate("jwt", {
-    session: false,
-    ignoreExpiration: false,
-    userProperty: "user",
-  })
-);
 router.post("/logout", logout);
 
 module.exports = router;
